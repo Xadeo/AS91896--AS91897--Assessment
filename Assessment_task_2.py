@@ -26,9 +26,11 @@ def normalfonts():
 #Defining a delete function for the user to press and quit the program
 def quit():
     main_window.destroy()
+            
 
 #Creating my entry points for the user and buttons for the command
 def setup_layout():
+    global entry_customer_name, entry_receipt_number, entry_item_hired, entry_number_hired, delete_row
     Label(main_window, text="WELCOME", font= titlefonts).grid(row= 0, column= 1)
     Label(main_window, text="Please Enter the Following Details", font= normalfonts).grid(row= 1, column= 1)
 
@@ -48,7 +50,7 @@ def setup_layout():
     Label(main_window, text="Number Hired", font= normalfonts).grid(row= 5, column= 0)
     entry_number_hired = Entry(main_window)
     entry_number_hired.grid(row = 5, column= 1)
-    Button(main_window, text="Append Details", font= normalfonts).grid(row= 6, column= 1, sticky= W)
+    Button(main_window, text="Append & Check Details", font= normalfonts).grid(row= 6, column= 1, sticky= W)
     Button(main_window, text="Print Details", font= normalfonts).grid(row= 6, column= 1, sticky= E)
 
     Label(main_window, text="Row Number", font= normalfonts).grid(row= 2, column= 2)

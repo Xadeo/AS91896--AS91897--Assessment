@@ -27,8 +27,26 @@ def normalfonts():
 def quit():
     main_window.destroy()
 
+
+
+def check_details():
+    global string_checker, customer_details
+    customer_name = entry_customer_name.get()
+    
+    #Checking if variable is string
+    res = type(customer_name) == str
+
+    if res == "True":
+        Label(main_window, text= f"{str(res)}, the entered text is indeed a string.").grid(row= 7, column= 1)
+    else:
+        Label(main_window, text= f"{str(res)}, the entered text is not a string. Please reenter customer name").grid(row= 7, column= 1)
+    
+
+    #Defining a string checker to check the entry input to make sure it is indeed a string and if it is not a string then it'll give a error message
+
 #Creating my entry points for the user and buttons for the command
 def setup_layout():
+    global entry_customer_name, entry_receipt_number, entry_item_hired, entry_number_hired, delete_row
     Label(main_window, text="WELCOME", font= titlefonts).grid(row= 0, column= 1)
     Label(main_window, text="Please Enter the Following Details", font= normalfonts).grid(row= 1, column= 1)
 
@@ -48,7 +66,7 @@ def setup_layout():
     Label(main_window, text="Number Hired", font= normalfonts).grid(row= 5, column= 0)
     entry_number_hired = Entry(main_window)
     entry_number_hired.grid(row = 5, column= 1)
-    Button(main_window, text="Append Details", font= normalfonts).grid(row= 6, column= 1, sticky= W)
+    Button(main_window, text="Append & Check Details", font= normalfonts, command= check_details).grid(row= 6, column= 1, sticky= W)
     Button(main_window, text="Print Details", font= normalfonts).grid(row= 6, column= 1, sticky= E)
 
     Label(main_window, text="Row Number", font= normalfonts).grid(row= 2, column= 2)
